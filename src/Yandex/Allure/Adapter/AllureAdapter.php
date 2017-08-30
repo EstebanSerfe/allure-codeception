@@ -389,6 +389,13 @@ class AllureAdapter extends Extension
                             $issue->issueKeys[] = $issueName;
                         }
                         $annotations[get_class($issue)] = $issue;
+                    } else if ($output[1] == 'TestCaseId') {
+                        $testCaseIds = $this->splitAnnotationContent($output[2]);
+                        $testCaseId = new \Yandex\Allure\Adapter\Annotation\TestCaseId();
+                        foreach($testCaseIds as $testcase) {
+                            $issues->testCaseIds[] = $testcase;
+                        }
+                        $annotations[get_class($testCaseId)] = $testCaseId;
                     } else {
                         \Codeception\Util\Debug::debug("Tag not detected: ".$output[1]);
                     }
