@@ -393,7 +393,7 @@ class AllureAdapter extends Extension
                         $testCaseIds = $this->splitAnnotationContent($output[2]);
                         $testCaseId = new \Yandex\Allure\Adapter\Annotation\TestCaseId();
                         foreach($testCaseIds as $testcase) {
-                            $issues->testCaseIds[] = $testcase;
+                            $testCaseId->testCaseIds[] = $testcase;
                         }
                         $annotations[get_class($testCaseId)] = $testCaseId;
                     } else {
